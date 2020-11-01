@@ -46,7 +46,7 @@ public class MainFrame extends JFrame {
     private int MemId = 1;
     // Формула №1 для рассчѐта
     public Double calculate1(Double x, Double y) {
-        return x*x + y*y;
+        return x + y*y;
     }
     // Формула №2 для рассчѐта
     public Double calculate2(Double x, Double y) {
