@@ -45,15 +45,13 @@ public class MainFrame extends JFrame {
     private Box hboxMemType = Box.createHorizontalBox();
     private int MemId = 1;
     // Формула №1 для рассчѐта
-    public Double calculate1(Double x, Double y) {
-        return x + y*y;
+    public Double calculate1(Double x, Double y, Double z) {
+        return Math.pow((Math.log(z)+Math.sin(Math.PI*z*z)),0.25)/Math.pow((y*y+Math.pow(Math.E,Math.cos(x))+Math.sin(y)),Math.sin(x));
     }
     // Формула №2 для рассчѐта
-    public Double calculate2(Double x, Double y) {
-        return x*x*x + 1/y;
+    public Double calculate2(Double x, Double y, Double z) {
+        return Math.pow(y,0.5)*3*Math.pow(z,x)/Math.pow((1+y*y*y),0.5);
     }
-
-
 }
 
     public static void main(String[] args) {
