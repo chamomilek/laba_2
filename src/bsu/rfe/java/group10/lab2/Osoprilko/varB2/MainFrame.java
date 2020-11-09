@@ -3,8 +3,6 @@ package bsu.rfe.java.group10.lab2.Osoprilko.varB2;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -194,11 +192,77 @@ public class MainFrame extends JFrame {
         {
             public void actionPerformed(ActionEvent ev)
             {
-                textFieldX.setText("0"); textFieldY.setText("0"); textFieldZ.setText("0"); textFieldResult.setText("0");
+                textFieldX.setText("0");
+                textFieldY.setText("0");
+                textFieldZ.setText("0");
+                textFieldResult.setText("0");
             }
         });
 
-        //-------------------------------------------------
+        //---------------------------------------------------------------------------
+
+        JButton buttonMC = new JButton("MC");
+        buttonMC.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent ev)
+            {
+                if (MemId == 1) textFieldMem1.setText("0");
+                else
+                if (MemId == 2) textFieldMem2.setText("0");
+                else
+                if (MemId == 3) textFieldMem3.setText("0");
+            }
+        });
+
+        JButton buttonMPlus = new JButton("M+");
+        buttonMPlus.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent ev)
+            {
+                Double toSave = Double.parseDouble(textFieldResult.getText());
+                if (MemId == 1)
+                {
+                    toSave += Double.parseDouble(textFieldMem1.getText());
+                    textFieldMem1.setText(toSave.toString());
+                }
+                else
+                if (MemId == 2)
+                {
+                    toSave += Double.parseDouble(textFieldMem2.getText());
+                    textFieldMem2.setText(toSave.toString());
+                }
+                else
+                if (MemId == 3)
+                {
+                    toSave += Double.parseDouble(textFieldMem3.getText());
+                    textFieldMem3.setText(toSave.toString());
+                }
+            }
+        });
+        //================================================================================
+        Box hboxButtons = Box.createHorizontalBox();
+        hboxButtons.add(Box.createHorizontalGlue());
+        hboxButtons.add(buttonCalc);
+        hboxButtons.add(Box.createHorizontalStrut(30));
+        hboxButtons.add(buttonReset);
+        hboxButtons.add(Box.createHorizontalStrut(30));
+        hboxButtons.add(buttonMC);
+        hboxButtons.add(Box.createHorizontalStrut(30));
+        hboxButtons.add(buttonMPlus);
+        hboxButtons.add(Box.createHorizontalGlue());
+        hboxButtons.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+
+        // Связать области воедино в компоновке BoxLayout
+        Box contentBox = Box.createVerticalBox();
+        contentBox.add(Box.createVerticalGlue());
+        contentBox.add(hboxFormulaType);
+        contentBox.add(hboxVariables);
+        contentBox.add(hboxResult);
+        contentBox.add(hboxMemory);
+        contentBox.add(hboxMemType);
+        contentBox.add(hboxButtons);
+        contentBox.add(Box.createVerticalGlue());
+        getContentPane().add(contentBox, BorderLayout.CENTER);
 
     }
 
