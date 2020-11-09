@@ -54,6 +54,7 @@ public class MainFrame extends JFrame {
     }
 
     //--------------------------------------------------------------------------------------------------------
+
     private void addRadioButton(String buttonName, final int formulaId) {
         JRadioButton button = new JRadioButton(buttonName);
         button.addActionListener(new ActionListener() {
@@ -86,7 +87,9 @@ public class MainFrame extends JFrame {
         hboxFormulaType.add(Box.createHorizontalGlue());
         addRadioButton("Формула 1", 1);
         addRadioButton("Формула 2", 2);
-
+        hboxFormulaType.add(Box.createHorizontalGlue());
+        // Задать рамку для коробки с помощью класса BorderFactory
+        hboxFormulaType.setBorder( BorderFactory.createLineBorder(Color.YELLOW));
         // Создать область с полями ввода для X и Y, Z
         JLabel labelForX = new JLabel("X:");
         textFieldX = new JTextField("0", 10);
@@ -97,6 +100,35 @@ public class MainFrame extends JFrame {
         JLabel labelForZ = new JLabel("Z:");
         textFieldZ = new JTextField("0", 10);
         textFieldZ.setMaximumSize(textFieldZ.getPreferredSize());
+        Box hboxVariables = Box.createHorizontalBox();
+        hboxVariables.setBorder( BorderFactory.createLineBorder(Color.RED));
+        hboxVariables.add(Box.createHorizontalGlue()); //7
+        hboxVariables.add(labelForX);
+        hboxVariables.add(Box.createHorizontalStrut(10));
+        hboxVariables.add(textFieldX);
+        hboxVariables.add(Box.createHorizontalStrut(50));
+        hboxVariables.add(Box.createHorizontalGlue());
+        hboxVariables.add(labelForY);
+        hboxVariables.add(Box.createHorizontalStrut(10));
+        hboxVariables.add(textFieldY);
+        hboxVariables.add(Box.createHorizontalStrut(50));
+        hboxVariables.add(Box.createHorizontalGlue());
+        hboxVariables.add(labelForZ);
+        hboxVariables.add(Box.createHorizontalStrut(10));
+        hboxVariables.add(textFieldZ);
+        hboxVariables.add(Box.createHorizontalGlue());
+        // Создать область для вывода результата
+        JLabel labelForResult = new JLabel("Результат:");
+        textFieldResult = new JTextField("0", 15);
+        textFieldResult.setMaximumSize( textFieldResult.getPreferredSize());
+        Box hboxResult = Box.createHorizontalBox();
+        hboxResult.add(Box.createHorizontalGlue());
+        hboxResult.add(labelForResult);
+        hboxResult.add(Box.createHorizontalStrut(10));
+        hboxResult.add(textFieldResult);
+        hboxResult.add(Box.createHorizontalGlue());
+        hboxResult.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
 
 
         // Область для ячеек памяти
@@ -133,6 +165,7 @@ public class MainFrame extends JFrame {
         hboxMemType.add(Box.createHorizontalGlue());
         hboxMemType.setBorder( BorderFactory.createLineBorder(Color.BLACK));
 
+        //--------------------------------------------------------------------
         // Создать область для кнопок
         JButton buttonCalc = new JButton("Вычислить");
         buttonCalc.addActionListener(new ActionListener()
