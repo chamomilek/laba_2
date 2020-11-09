@@ -2,7 +2,6 @@ package bsu.rfe.java.group10.lab2.Osoprilko.varB2;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -100,7 +98,7 @@ public class MainFrame extends JFrame {
         textFieldZ.setMaximumSize(textFieldZ.getPreferredSize());
         Box hboxVariables = Box.createHorizontalBox();
         hboxVariables.setBorder( BorderFactory.createLineBorder(Color.RED));
-        hboxVariables.add(Box.createHorizontalGlue()); //7
+        //hboxVariables.add(Box.createHorizontalGlue());
         hboxVariables.add(labelForX);
         hboxVariables.add(Box.createHorizontalStrut(10));
         hboxVariables.add(textFieldX);
@@ -114,7 +112,7 @@ public class MainFrame extends JFrame {
         hboxVariables.add(labelForZ);
         hboxVariables.add(Box.createHorizontalStrut(10));
         hboxVariables.add(textFieldZ);
-        hboxVariables.add(Box.createHorizontalGlue());
+        //hboxVariables.add(Box.createHorizontalGlue());
         // Создать область для вывода результата
         JLabel labelForResult = new JLabel("Результат:");
         textFieldResult = new JTextField("0", 15);
